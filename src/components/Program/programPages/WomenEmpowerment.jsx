@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -7,6 +7,15 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 function WomenEmpowerment() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 1024);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const program = {
     label: "WOMEN EMPOWERMENT",
     title: "Medical Outreach",
@@ -23,7 +32,7 @@ function WomenEmpowerment() {
       "Donated 100+ maternity packages",
       "Provided cash gifts and settled medical bills",
       "Referred patients to specialist hospitals for proper care",
-      " Held a sensitization program to educate them about their health",
+      "Held a sensitization program to educate them about their health",
       "Support mothers before, during and after pregnancy",
       "Listened to the hospital’s needs and pledged continuous support",
     ],
@@ -38,7 +47,7 @@ function WomenEmpowerment() {
           <Swiper
             modules={[Autoplay, Navigation, Pagination]}
             autoplay={{ delay: 3000 }}
-            navigation
+            navigation={!isMobile} // 👈 disables arrows on mobile
             pagination={{ clickable: true }}
             loop
             className="rounded-xl"

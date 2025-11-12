@@ -13,7 +13,7 @@ function Program() {
       description:
         "A multimedia campaign targeting secondary schools and universities across Nigeria, using drama, storytelling, social media, and real-life testimonials to educate youths on the dangers of drug abuse and how to seek help.",
       image: "/back/proimage1.jpg",
-      mobileImage: "/back/proimage1m.jpg",
+      mobileImage: "/back/proimage1m.png",
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ function Program() {
       description:
         "Provide rural women with access to small loans, savings groups, and business development training. The project also includes financial literacy and cooperative formation to scale impact and sustainability.",
       image: "/back/proimage2.jpg",
-      mobileImage: "/back/proimage2m.jpg",
+      mobileImage: "/back/proimage2m.png",
     },
     {
       id: 3,
@@ -31,7 +31,7 @@ function Program() {
       description:
         "Deploy mobile clinics to rural and underserved communities to offer free medical checkups, maternal care, vaccinations, and health education. Services will include basic lab tests and referrals.",
       image: "/back/proimage3.jpg",
-      mobileImage: "/back/proimage3m.jpg",
+      mobileImage: "/back/proimage3m.png",
     },
     {
       id: 4,
@@ -40,7 +40,7 @@ function Program() {
       description:
         "Provide rural women with access to small loans, savings groups, and business development training. The project also includes financial literacy and cooperative formation to scale impact and sustainability.",
       image: "/back/proimage4.jpg",
-      mobileImage: "/back/proimage4m.jpg",
+      mobileImage: "/back/proimage4m.png",
     },
   ];
 

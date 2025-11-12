@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -8,6 +8,15 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 function DrugAbuse() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 1024);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const program = {
     label: "DRUG ABUSE PREVENTION",
     title: "Walk Away From Drugs Campaign",
@@ -34,12 +43,11 @@ function DrugAbuse() {
   return (
     <section className="pt-[120px] px-4 lg:px-[120px] mb-[75px] font-dmSans">
       <div className="max-w-4xl mx-auto">
-        {/* Swiper */}
         <div className="mb-6 rounded-xl overflow-hidden">
           <Swiper
             modules={[Autoplay, Navigation, Pagination]}
             autoplay={{ delay: 3000 }}
-            navigation
+            navigation={!isMobile} // ✅ disables arrows on mobile
             pagination={{ clickable: true }}
             loop
             className="rounded-xl"

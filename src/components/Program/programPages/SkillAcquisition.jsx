@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -8,6 +8,15 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 function SkillAcquisition() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 1024);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const program = {
     label: "SKILL ACQUISITION",
     title: "International Day Against Drug Abuse & Illicit Trafficking",
@@ -38,7 +47,7 @@ function SkillAcquisition() {
           <Swiper
             modules={[Autoplay, Navigation, Pagination]}
             autoplay={{ delay: 3000 }}
-            navigation
+            navigation={!isMobile} // 👈 disables arrows on mobile
             pagination={{ clickable: true }}
             loop
             className="rounded-xl"

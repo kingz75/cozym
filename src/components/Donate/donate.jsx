@@ -84,7 +84,7 @@ export default function Donation() {
                       Call or Chat on WhatsApp
                     </h3>
                     <p className="text-[#3E3D3D] text-[20px] leading-[24px]">
-                      ++234911911 1100
+                      +234 911 911 1100
                     </p>
                   </div>
 

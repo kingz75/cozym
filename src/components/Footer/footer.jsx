@@ -82,19 +82,13 @@ function Footer() {
             <h3 className="font-semibold text-lg sm:text-xl text-[#ABC452] mb-3">
               Our Links
             </h3>
-            <a
-              href="/privacy"
-              className="hover:text-[#ABC452] transition-colors"
-            >
+            <a href="" className="hover:text-[#ABC452] transition-colors">
               Privacy Policy
             </a>
-            <a href="/terms" className="hover:text-[#ABC452] transition-colors">
+            <a href="" className="hover:text-[#ABC452] transition-colors">
               Terms and Conditions
             </a>
-            <a
-              href="/get-involved"
-              className="hover:text-[#ABC452] transition-colors"
-            >
+            <a href="" className="hover:text-[#ABC452] transition-colors">
               How to Get Involved
             </a>
           </div>
