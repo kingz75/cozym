@@ -1,25 +1,22 @@
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
-  FaInstagram,
-  FaTelegramPlane,
-  FaEnvelope,
-  FaPhoneAlt,
-  FaMapMarkerAlt,
-} from "react-icons/fa";
-
 import { Link } from "react-router-dom";
+import { FaTelegramPlane } from "react-icons/fa";
+
+// Import your social icon images
+import TwitterIcon from "../assets/icons/xbg.svg";
+import FacebookIcon from "../assets/icons/facebookbg.svg";
+import LinkedInIcon from "../assets/icons/inbg.svg";
+import InstagramIcon from "../assets/icons/instagrambg.svg";
+import Footericon from "../assets/icons/footericon.svg";
 
 export default function Footer() {
   return (
-    <footer className="w-full px-">
+    <footer className=" bg-[#012A42]  ">
       {/* MAIN FOOTER */}
-      <div className="bg-[#012A42] text-[#FFFFFF] py-16 px-[300px] ">
-        <div className="grid  grid-cols-3 gap-44">
+      <div className=" text-[#FFFFFF] max-w-[1100px] mx-auto py-16 ">
+        <div className="grid grid-cols-3 gap-20">
           {/* Left Section */}
           <div>
-            <img src="/logo.png" alt="Cozym Logo" className="w-40 mb-4" />
+            <img src={Footericon} alt="Cozym Logo" className="mb-6" />
 
             <p className="text-[15px] font-medium leading-relaxed text-[#A5A49A]">
               Established in 2012, Cozym began in water and environmental
@@ -28,26 +25,41 @@ export default function Footer() {
             </p>
 
             {/* Social Icons */}
-            <div className="flex gap-4 mt-4 text-[#FFFFFF] ">
-              <div
-                className="pb-3 px-3 rounded-b-full rounded-t-2xl bg-[#003356] flex items-center justify-center text-white 
-                     shadow-[0px_5px_20px_rgba(0,0,0,0.4)] hover:shadow-[0px_8px_25px_rgba(0,0,0,0.5)] 
-                     transition-all duration-300 cursor-pointer"
-              >
-                <FaTwitter className="text-lg cursor-pointer hover:text-[#FAA419]" />
-              </div>
-
-              <FaFacebookF className="text-lg cursor-pointer hover:text-[#FAA419]" />
-
-              <FaLinkedinIn className="text-lg cursor-pointer hover:text-[#FAA419]" />
-
-              <FaInstagram className="text-lg cursor-pointer hover:text-[#FAA419]" />
+            <div className="flex gap-[1px] mt-6">
+              <a href="#" target="_blank">
+                <img
+                  src={TwitterIcon}
+                  alt="Twitter"
+                  className=" cursor-pointer hover:opacity-80"
+                />
+              </a>
+              <a href="#" target="_blank">
+                <img
+                  src={FacebookIcon}
+                  alt="Facebook"
+                  className=" cursor-pointer hover:opacity-80"
+                />
+              </a>
+              <a href="#" target="_blank">
+                <img
+                  src={LinkedInIcon}
+                  alt="LinkedIn"
+                  className=" cursor-pointer hover:opacity-80"
+                />
+              </a>
+              <a href="#" target="_blank">
+                <img
+                  src={InstagramIcon}
+                  alt="Instagram"
+                  className=" cursor-pointer hover:opacity-80"
+                />
+              </a>
             </div>
           </div>
 
-          {/* Explore */}
+          {/* Explore Section */}
           <div>
-            <h3 className="font-bold text-lg ">Explore</h3>
+            <h3 className="font-bold text-lg">Explore</h3>
             <div className="flex gap-1">
               <div className="w-12 h-1 bg-[#FAA419] mt-2 mb-4 rounded"></div>
               <div className="w-1 h-1 bg-[#FAA419] mt-2 mb-4 rounded"></div>
@@ -99,30 +111,25 @@ export default function Footer() {
             <h3 className="font-bold text-lg mb-2">Contact</h3>
 
             <div className="flex gap-1 mb-4">
-              <div className="w-12 h-1 bg-[#FAA419]   rounded"></div>
-              <div className="w-1 h-1 bg-[#FAA419]  rounded"></div>
+              <div className="w-12 h-1 bg-[#FAA419] rounded"></div>
+              <div className="w-1 h-1 bg-[#FAA419] rounded"></div>
             </div>
 
             <div className="flex items-center gap-3 text-[#A5A49A] text-[15px] ">
-              <FaPhoneAlt className="text-[15px] text-[#FAA419]" /> +234 907
-              0000 251
+              +234 907 0000 251
             </div>
             <div className="flex items-center gap-3 text-[#A5A49A] text-[15px]">
-              <FaPhoneAlt className="text-[15px] text-[#FAA419]" /> +234 907
-              0000 252
+              +234 907 0000 252
             </div>
             <div className="flex items-center gap-3 text-[#A5A49A] text-[15px]">
-              <FaPhoneAlt className="text-[15px] text-[#FAA419]" /> +234 907
-              0000 253
+              +234 907 0000 253
             </div>
 
             <div className="flex items-center gap-4 text-[#A5A49A] mt-2 text-[15px]">
-              <FaEnvelope className="text-[15px] text-[#FAA419]" />{" "}
               info@cozymltd.com
             </div>
 
             <div className="flex items-start gap-4 text-[#A5A49A] text-[15px] mt-2 leading-relaxed">
-              <FaMapMarkerAlt className="text-[40px] text-[#FAA419]" />
               Plot 2, Block 115, Ayo Babatunde Crescent, Off Oniru New Market
               Road, Lekki, Lagos State, Nigeria
             </div>
