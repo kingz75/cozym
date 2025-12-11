@@ -1,12 +1,12 @@
-import React from 'react';
-import HeroSection from './DED/heroSection';
+import React from "react";
+import HeroSection from "./DED/heroSection";
 
 export default function Ded() {
-	return (
-		<div>
-			<div>
-				<HeroSection />
-			</div>
-		</div>
-	);
+  return (
+    <div>
+      <div>
+        <HeroSection />
+      </div>
+    </div>
+  );
 }

@@ -16,7 +16,9 @@ export default function Footer() {
         <div className="grid grid-cols-3 gap-20">
           {/* Left Section */}
           <div>
-            <img src={Footericon} alt="Cozym Logo" className="mb-6" />
+            <Link to="/">
+              <img src={Footericon} alt="Cozym Logo" className="mb-6" />
+            </Link>
 
             <p className="text-[15px] font-medium leading-relaxed text-[#A5A49A]">
               Established in 2012, Cozym began in water and environmental
@@ -67,24 +69,13 @@ export default function Footer() {
 
             <ul className="space-y-2 text-[#A5A49A] text-[15px] font-medium">
               <li>
+                <Link to="/" className="hover:text-[#FAA419] duration-200">
+                  Home
+                </Link>
+              </li>
+              <li>
                 <Link to="/about" className="hover:text-[#FAA419] duration-200">
                   About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services"
-                  className="hover:text-[#FAA419] duration-200"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/projects"
-                  className="hover:text-[#FAA419] duration-200"
-                >
-                  Our Projects
                 </Link>
               </li>
               <li>
@@ -92,7 +83,20 @@ export default function Footer() {
                   to="/academy"
                   className="hover:text-[#FAA419] duration-200"
                 >
-                  Cozym Academy
+                  Academy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/careers"
+                  className="hover:text-[#FAA419] duration-200"
+                >
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link to="/news" className="hover:text-[#FAA419] duration-200">
+                  News
                 </Link>
               </li>
               <li>

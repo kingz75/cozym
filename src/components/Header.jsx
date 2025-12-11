@@ -20,7 +20,7 @@ export default function Header() {
     <header className="w-full ">
       {/* TOP BAR */}
       <div className="bg-[#002b45] ">
-        <div className=" text-[#FFFFFF] text-[12px] font-medium py-2  max-w-[1100px] mx-auto  flex justify-between items-center">
+        <div className=" text-[#FFFFFF] text-[12px] font-medium py-2 px-[80px]  max-w-[1100px] mx-auto  flex justify-between items-center">
           <div className="flex items-center gap-2">
             <FaMapMarkerAlt size={14} />
             <span>
@@ -78,7 +78,7 @@ export default function Header() {
 
       {/* NAV BAR */}
       <div className="bg-white ">
-        <div className="py-[25px]  max-w-[1300px] mx-auto flex justify-between items-center gap-6 relative">
+        <div className="py-[25px] px-[40px]  max-w-[1400px] mx-auto flex justify-between items-center gap-6 relative">
           {/* Logo */}
           <Link to="/">
             <img src={Mainicon} alt="logo" />
