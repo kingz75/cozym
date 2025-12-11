@@ -1,4 +1,5 @@
 import React from 'react';
+import ScrollToTop from './components/ScrollToTop';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -10,7 +11,7 @@ import About from './pages/About';
 // import Academy from './pages/Academy';
 // import Careers from './pages/Careers';
 import News from './pages/News';
-// import Contact from './pages/Contact';
+import Contact from './pages/Contact';
 
 // SERVICE PAGES
 // import Gasdistribution from './pages/services/Gasdistribution';
@@ -39,6 +40,7 @@ import Utility from './pages/services/Utility/Utility';
 export default function App() {
 	return (
 		<Router>
+			<ScrollToTop />
 			<Header />
 
 			<Routes>
@@ -55,20 +57,22 @@ export default function App() {
 				{/* <Route
 					path="/academy"
 					element={<Academy />}
-				/> */}
-
-				{/* <Route
+				/>
+        
+				<Route
 					path="/careers"
 					element={<Careers />}
-				/> */}
+				/>
+        */}
 				<Route
 					path="/news"
 					element={<News />}
 				/>
-				{/* <Route
+
+				<Route
 					path="/contact"
 					element={<Contact />}
-				/>   */}
+				/>
 
 				{/* Services Sub Routes */}
 

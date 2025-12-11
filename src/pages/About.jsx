@@ -7,7 +7,7 @@ import Key from "./ABOUT/key";
 import Team from "./ABOUT/team";
 import Team1 from "./ABOUT/team1";
 
-export default function Ded() {
+export default function About() {
   return (
     <div>
       <div>

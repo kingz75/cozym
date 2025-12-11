@@ -11,7 +11,7 @@ import News3 from "../../assets/images/news3.png";
 export default function BlogPage() {
   return (
     <div className="w-full bg-white py-12 px-4 ">
-      <div className="max-w-[1000px] mx-auto">
+      <div className="max-w-[1100px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* LEFT COLUMN (POSTS) */}
           <div className="col-span-2 space-y-10">
