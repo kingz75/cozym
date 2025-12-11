@@ -1,24 +1,20 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ['./src/**/*.{js,jsx,ts,tsx}'],
+	content: ['./src/**/*.{js,jsx}'],
 	theme: {
-		container: {
-			center: true, // Always center the container
-			padding: '1rem', // Adds padding to avoid edge cuts
-		},
 		extend: {
-			screens: {
-				xs: '475px', // Custom extra-small screen breakpoint
+			keyframes: {
+				parallax: {
+					'0%': { transform: 'scale(1.1) translateY(0px)' },
+					'100%': { transform: 'scale(1.1) translateY(-20px)' },
+				},
+				fadeSlide: {
+					'0%': { opacity: 0, transform: 'translateY(20px)' },
+					'100%': { opacity: 1, transform: 'translateY(0px)' },
+				},
 			},
-			// fontFamily: {
-			// 	manrope: ['Manrope', 'sans-serif'], // Custom font family
-			// },
-			fontFamily: {
-				outfit: ['Outfit', 'sans-serif'],
-				monda: ['Monda', 'sans-serif'],
-				gotham: ['Gotham', 'sans-serif'],
-				playfair: ['Playfair Display', 'serif'],
-				dmSans: ['DM Sans', 'sans-serif'],
+			animation: {
+				parallax: 'parallax 10s linear infinite alternate',
+				fadeSlide: 'fadeSlide 1.2s ease-out',
 			},
 		},
 	},

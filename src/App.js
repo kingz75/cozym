@@ -1,12 +1,12 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 // MAIN PAGES
 
-// import Home from './pages/Home';
-import About from "./pages/About";
+import Home from './pages/Home';
+// import About from './pages/About';
 // import Academy from './pages/Academy';
 // import Careers from './pages/Careers';
 // import News from './pages/News';
@@ -23,24 +23,32 @@ import About from "./pages/About";
 // import Utility from './pages/services/utility';
 
 // PROJECT PAGES
-import Ded from "./pages/projects/Ded";
-import Feed from "./pages/projects/Feed";
-import Integrity from "./pages/projects/integrity";
-import Lpg from "./pages/projects/Lpg";
+import Ded from './pages/projects/DED/Ded';
+import Feed from './pages/projects/Feed/Feed';
+import Integrity from './pages/projects/Integrity/integrity';
+import Lpg from './pages/projects/LPG/Lpg';
+import Gasprocessing from './pages/services/GasProcessing/Gasprocessing';
+import Gasdistribution from './pages/services/GasDistribution/Gasdistribution';
+import Oilngas from './pages/services/OilGas/Oilngas';
+import Pipeline from './pages/services/PipeLine/Pipeline';
+import Procurement from './pages/services/Procurement/Procurement';
+import Storage from './pages/services/Storage/Storage';
+import Technical from './pages/services/Technical/Technical';
+import Utility from './pages/services/Utility/Utility';
 
 export default function App() {
-  return (
-    <Router>
-      <Header />
+	return (
+		<Router>
+			<Header />
 
-      <Routes>
-        {/* Main Routes */}
+			<Routes>
+				{/* Main Routes */}
 
-        {/* <Route
+				<Route
 					path="/"
 					element={<Home />}
 				/>
-				<Route
+				{/* <Route
 					path="/about"
 					element={<About />}
 				/>
@@ -59,11 +67,11 @@ export default function App() {
 				<Route
 					path="/contact"
 					element={<Contact />}
-				/> */}
+				/>  */}
 
-        {/* Services Sub Routes */}
+				{/* Services Sub Routes */}
 
-        {/* <Route
+				<Route
 					path="/services/gasdistribution"
 					element={<Gasdistribution />}
 				/>
@@ -94,17 +102,29 @@ export default function App() {
 				<Route
 					path="/services/utility"
 					element={<Utility />}
-				/> */}
+				/>
 
-        {/* Project Sub Routes */}
+				{/* Project Sub Routes */}
 
-        <Route path="/projects/ded" element={<Ded />} />
-        <Route path="/projects/feed" element={<Feed />} />
-        <Route path="/projects/integrity" element={<Integrity />} />
-        <Route path="/projects/lpg" element={<Lpg />} />
-      </Routes>
+				<Route
+					path="/projects/ded"
+					element={<Ded />}
+				/>
+				<Route
+					path="/projects/feed"
+					element={<Feed />}
+				/>
+				<Route
+					path="/projects/integrity"
+					element={<Integrity />}
+				/>
+				<Route
+					path="/projects/lpg"
+					element={<Lpg />}
+				/>
+			</Routes>
 
-      <Footer />
-    </Router>
-  );
+			<Footer />
+		</Router>
+	);
 }

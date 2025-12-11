@@ -1,5 +1,5 @@
 import React from 'react';
-import HeroSection from './DED/heroSection';
+import HeroSection from '../heroSection';
 
 export default function integrity() {
 	return (

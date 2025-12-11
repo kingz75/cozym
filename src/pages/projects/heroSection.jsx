@@ -1,5 +1,5 @@
 import React from 'react';
-import projectOne from '../../../assets/images/projectCover.jpg';
+import projectOne from '../../assets/images/projectCover.jpg';
 export default function HeroSection() {
 	return (
 		<div>
