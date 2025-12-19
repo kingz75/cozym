@@ -85,7 +85,7 @@ const columnContent = [
         Discover how Nigeria’s new cost-efficiency tax incentives are reshaping
         EPCC project economics. Learn how contractors can optimize costs, boost
         profitability, and stay competitive in the oil and gas sector.  
-        <p className="text-[#F7C04A] font-bold mb-2">Introduction</p>
+        <p className="text-[#F7C04A] font-bold mb-2 mt-4">Introduction</p>
         <p>
           Nigeria’s oil and gas sector is undergoing a significant shift with
           the introduction of new cost-efficiency tax incentives for upstream
@@ -157,7 +157,9 @@ const columnContent = [
       <>
         Learn what gas flaring is, why it happens in Nigeria, and how it’s being
         transformed into usable energy through innovative programs.
-        <p className=" text-[#F7C04A] font-bold mb-2">What is Gas Flaring?</p>
+        <p className=" text-[#F7C04A] font-bold mb-2 mt-4">
+          What is Gas Flaring?
+        </p>
         <p>
           Gas flaring is the burning of natural gas released during oil
           extraction. While it ensures safety, it wastes valuable energy and
@@ -292,11 +294,83 @@ export default function BlogPage() {
   ];
 
   return (
-    <div className="w-full bg-white py-12 px-4">
+    <div className="w-full bg-white py-8 sm:py-12 px-4">
       <div className="max-w-[1100px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+          {/* RIGHT SIDEBAR */}
+          <div className="space-y-6 sm:space-y-8 order-1 lg:order-2">
+            {/* SEARCH */}
+            <div className="flex items-center bg-[#012A42] rounded-lg px-3 sm:px-4 py-2 sm:py-3">
+              <input
+                type="text"
+                placeholder="Search here..."
+                className="flex-1 bg-transparent outline-none text-white placeholder:text-gray-300 text-sm sm:text-base"
+              />
+              <FaSearch className="text-white text-sm sm:text-base" />
+            </div>
+
+            {/* LATEST POSTS */}
+            <div className="bg-[#FFF7E9] rounded-xl p-4 sm:p-6">
+              <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-5">
+                Latest Posts
+              </h3>
+              {latestPosts.map((post, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4"
+                >
+                  <img
+                    src={post.image}
+                    alt=""
+                    className="w-12 h-10 sm:w-16 sm:h-14 object-cover rounded-md"
+                  />
+                  <div>
+                    <span className="text-xs text-gray-500 flex items-center gap-1 mb-1">
+                      <IoPersonCircle className="text-[#F7C04A] text-sm" />
+                      by {post.author}
+                    </span>
+                    <p className="text-xs sm:text-sm font-semibold leading-snug">
+                      {post.title}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* CATEGORIES */}
+            <div className="bg-[#FFF7E9] rounded-xl p-4 sm:p-6">
+              <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
+                Categories
+              </h3>
+              <ul className="space-y-2 text-xs sm:text-sm">
+                <li>Industry News</li>
+                <li>Oil and Gas</li>
+                <li>Government</li>
+              </ul>
+            </div>
+
+            {/* TAGS */}
+            <div className="bg-[#FFF7E9] rounded-xl p-4 sm:p-6">
+              <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">
+                Tags
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {["Oil and Gas", "Engineer", "News", "Projects", "Others"].map(
+                  (tag, i) => (
+                    <span
+                      key={i}
+                      className="px-2 sm:px-3 py-1 bg-white text-xs sm:text-sm rounded-md border hover:bg-[#FAA419] hover:text-white"
+                    >
+                      {tag}
+                    </span>
+                  )
+                )}
+              </div>
+            </div>
+          </div>
+
           {/* POSTS */}
-          <div className="col-span-2 space-y-10">
+          <div className="col-span-1 lg:col-span-2 space-y-6 sm:space-y-8 lg:space-y-10 order-2 lg:order-1">
             {posts.map((post) => (
               <div
                 key={post.id}
@@ -305,24 +379,28 @@ export default function BlogPage() {
                 <img
                   src={post.image}
                   alt="Post"
-                  className="w-full h-[] object-cover"
+                  className="w-full h-48 sm:h-56 md:h-64 lg:h-72 object-cover"
                 />
 
-                <div className="p-6">
-                  <span className="inline-block bg-[#F7C04A] text-white text-xs px-3 py-1 rounded-md">
+                <div className="p-4 sm:p-5 lg:p-6">
+                  <span className="inline-block bg-[#F7C04A] text-white text-xs px-2 sm:px-3 py-1 rounded-md">
                     {post.date}
                   </span>
 
-                  <div className="flex items-center gap-4 text-sm text-gray-500 mt-2">
+                  <div className="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500 mt-2">
                     <span className="flex items-center gap-1">
-                      <IoPersonCircle className="text-[#F7C04A]" /> by Caroline
+                      <IoPersonCircle className="text-[#F7C04A] text-sm sm:text-base" />{" "}
+                      by Caroline
                     </span>
                     <span className="flex items-center gap-1">
-                      <FaComments className="text-[#F7C04A]" /> {post.comments}
+                      <FaComments className="text-[#F7C04A] text-sm sm:text-base" />{" "}
+                      {post.comments}
                     </span>
                   </div>
 
-                  <h2 className="text-2xl font-semibold mt-4">{post.title}</h2>
+                  <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold mt-4">
+                    {post.title}
+                  </h2>
 
                   <div className="text-gray-600 mt-4">
                     {openPost === post.id
@@ -340,70 +418,6 @@ export default function BlogPage() {
               </div>
             ))}
           </div>
-
-          {/* RIGHT SIDEBAR */}
-          <div className="space-y-8">
-            {/* SEARCH */}
-            <div className="flex items-center bg-[#012A42] rounded-lg px-4 py-3">
-              <input
-                type="text"
-                placeholder="Search here..."
-                className="flex-1 bg-transparent outline-none text-white placeholder:text-gray-300"
-              />
-              <FaSearch className="text-white" />
-            </div>
-
-            {/* LATEST POSTS */}
-            <div className="bg-[#FFF7E9] rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-5">Latest Posts</h3>
-              {latestPosts.map((post, i) => (
-                <div key={i} className="flex items-center gap-4 mb-4">
-                  <img
-                    src={post.image}
-                    alt=""
-                    className="w-16 h-14 object-cover rounded-md"
-                  />
-                  <div>
-                    <span className="text-xs text-gray-500 flex items-center gap-1 mb-1">
-                      <IoPersonCircle className="text-[#F7C04A]" />
-                      by {post.author}
-                    </span>
-                    <p className="text-sm font-semibold leading-snug">
-                      {post.title}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* CATEGORIES */}
-            <div className="bg-[#FFF7E9] rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4">Categories</h3>
-              <ul className="space-y-2 text-sm">
-                <li>Industry News</li>
-                <li>Oil and Gas</li>
-                <li>Government</li>
-              </ul>
-            </div>
-
-            {/* TAGS */}
-            <div className="bg-[#FFF7E9] rounded-xl p-6">
-              <h3 className="text-lg font-semibold mb-4">Tags</h3>
-              <div className="flex flex-wrap gap-2">
-                {["Oil and Gas", "Engineer", "News", "Projects", "Others"].map(
-                  (tag, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 bg-white text-sm rounded-md border hover:bg-[#FAA419] hover:text-white"
-                    >
-                      {tag}
-                    </span>
-                  )
-                )}
-              </div>
-            </div>
-          </div>
-          {/* END SIDEBAR */}
         </div>
       </div>
     </div>

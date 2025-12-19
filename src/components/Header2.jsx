@@ -1,21 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import Mainicon from "../assets/icons/mainicon.svg";
 import {
   FaMapMarkerAlt,
   FaEnvelope,
-  FaTwitter,
   FaFacebookF,
   FaLinkedinIn,
   FaInstagram,
   FaChevronDown,
   FaChevronUp,
+  FaBars,
+  FaTimes,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 export default function Header() {
   const [serviceOpen, setServiceOpen] = useState(false);
   const [projectOpen, setProjectOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileServiceOpen, setMobileServiceOpen] = useState(false);
+  const [mobileProjectOpen, setMobileProjectOpen] = useState(false);
 
   // Detect active path
   const { pathname } = useLocation();
@@ -24,24 +28,42 @@ export default function Header() {
 
   const isHome = pathname === "/";
 
+  // Prevent scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [menuOpen]);
+
   return (
     <header
-      className={`w-full ${isHome ? "absolute top-0 left-0 right-0 z-50" : ""}`}
+      className={`w-full fixed md:${
+        isHome ? "absolute" : "static"
+      } top-0 left-0 right-0 z-50`}
     >
-      {/* TOP BAR */}
-      <div className={`${isHome ? "bg-black/50" : "bg-[#002b45]"}`}>
-        <div className="text-[#FFFFFF] text-[12px] font-medium py-2 px-[20px] md:px-[40px] lg:px-[80px] max-w-[1200px] mx-auto flex justify-between items-center">
+      {/* TOP BAR - Hidden on mobile */}
+      <div
+        className={`hidden md:block ${isHome ? "bg-black/50" : "bg-[#002b45]"}`}
+      >
+        <div className="text-[#FFFFFF] text-[10px] sm:text-[12px] font-medium py-2 px-[20px] md:px-[40px] lg:px-[80px] max-w-[1200px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
           <div className="flex items-center gap-2">
-            <FaMapMarkerAlt size={14} />
+            <FaMapMarkerAlt size={12} className="sm:w-[14px] sm:h-[14px]" />
             <span>
               Plot 2, Block 115, Ayo Babatunde Crescent, Off Oniru New Market
               Road, Lekki, Lagos State, Nigeria
             </span>
           </div>
 
-          <div className="flex items-center gap-28">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
             <div className="flex items-center gap-2">
-              <FaEnvelope size={14} />
+              <FaEnvelope size={12} className="sm:w-[14px] sm:h-[14px]" />
               <span>cozym@cozymtld.com</span>
             </div>
 
@@ -102,7 +124,7 @@ export default function Header() {
 
           <nav>
             <ul
-              className={`flex items-center gap-6 font-semibold ${
+              className={`hidden md:flex items-center gap-6 font-semibold ${
                 isHome ? "text-white" : "text-[#002b45]"
               }`}
             >
@@ -298,7 +320,7 @@ export default function Header() {
           </nav>
 
           {/* Download Button */}
-          <div>
+          <div className="hidden md:block">
             <a
               href="/cozymprofile.pdf"
               target="_blank"
@@ -308,8 +330,233 @@ export default function Header() {
               Download Profile
             </a>
           </div>
+
+          {/* Hamburger Menu */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className={`md:hidden ${isHome ? "text-white" : "text-[#002b45]"}`}
+          >
+            {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="fixed top-[80px] left-0 right-0 bg-[#ffffff] z-50 md:hidden flex flex-col">
+          <div className="flex-1 overflow-y-auto py-20 px-4">
+            <ul className="text-[#002b45] text-left space-y-4 max-w-md">
+              <li>
+                <NavLink
+                  to="/"
+                  onClick={() => setMenuOpen(false)}
+                  className="hover:text-[#FAA419]"
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/about"
+                  onClick={() => setMenuOpen(false)}
+                  className="hover:text-[#FAA419]"
+                >
+                  About
+                </NavLink>
+              </li>
+              <li className="mt-4">
+                <div
+                  className="text-[#FAA419] font-bold cursor-pointer flex items-center gap-2"
+                  onClick={() => setMobileServiceOpen(!mobileServiceOpen)}
+                >
+                  Services{" "}
+                  {mobileServiceOpen ? (
+                    <FaChevronUp size={12} />
+                  ) : (
+                    <FaChevronDown size={12} />
+                  )}
+                </div>
+                {mobileServiceOpen && (
+                  <ul className="space-y-2 mt-2">
+                    <li>
+                      <NavLink
+                        to="/services/oilngas"
+                        onClick={() => setMenuOpen(false)}
+                        className="block hover:text-[#FAA419]"
+                      >
+                        Oil & Gas Production Facilities
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/services/gasprocessing"
+                        onClick={() => setMenuOpen(false)}
+                        className="block hover:text-[#FAA419]"
+                      >
+                        Gas Processing & Conditioning
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/services/gasdistribution"
+                        onClick={() => setMenuOpen(false)}
+                        className="block hover:text-[#FAA419]"
+                      >
+                        Gas Distribution & Terminals
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/services/pipeline"
+                        onClick={() => setMenuOpen(false)}
+                        className="block hover:text-[#FAA419]"
+                      >
+                        Pipelines & Distribution Networks
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/services/technical"
+                        onClick={() => setMenuOpen(false)}
+                        className="block hover:text-[#FAA419]"
+                      >
+                        Technical Training
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/services/storage"
+                        onClick={() => setMenuOpen(false)}
+                        className="block hover:text-[#FAA419]"
+                      >
+                        Storage Facilities
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/services/utility"
+                        onClick={() => setMenuOpen(false)}
+                        className="block hover:text-[#FAA419]"
+                      >
+                        Utility & Support Infrastructure
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/services/procurement"
+                        onClick={() => setMenuOpen(false)}
+                        className="block hover:text-[#FAA419]"
+                      >
+                        Procurement Services
+                      </NavLink>
+                    </li>
+                  </ul>
+                )}
+              </li>
+              <li className="mt-4">
+                <div
+                  className="text-[#FAA419] font-bold cursor-pointer flex items-center gap-2"
+                  onClick={() => setMobileProjectOpen(!mobileProjectOpen)}
+                >
+                  Projects{" "}
+                  {mobileProjectOpen ? (
+                    <FaChevronUp size={12} />
+                  ) : (
+                    <FaChevronDown size={12} />
+                  )}
+                </div>
+                {mobileProjectOpen && (
+                  <ul className="space-y-2 mt-2">
+                    <li>
+                      <NavLink
+                        to="/projects/lpg"
+                        onClick={() => setMenuOpen(false)}
+                        className="block hover:text-[#FAA419]"
+                      >
+                        LPG Storage & Distribution Terminal
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/projects/feed"
+                        onClick={() => setMenuOpen(false)}
+                        className="block hover:text-[#FAA419]"
+                      >
+                        FEED — 1.6 km LPG Onshore Pipeline
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/projects/ded"
+                        onClick={() => setMenuOpen(false)}
+                        className="block hover:text-[#FAA419]"
+                      >
+                        DED — 18 km Onshore Gas Distribution
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/projects/integrity"
+                        onClick={() => setMenuOpen(false)}
+                        className="block hover:text-[#FAA419]"
+                      >
+                        Integrity Assessment & FEED
+                      </NavLink>
+                    </li>
+                  </ul>
+                )}
+              </li>
+              <li>
+                <NavLink
+                  to="/academy"
+                  onClick={() => setMenuOpen(false)}
+                  className="hover:text-[#FAA419]"
+                >
+                  Academy
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/careers"
+                  onClick={() => setMenuOpen(false)}
+                  className="hover:text-[#FAA419]"
+                >
+                  Careers
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/news"
+                  onClick={() => setMenuOpen(false)}
+                  className="hover:text-[#FAA419]"
+                >
+                  News
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/contact"
+                  onClick={() => setMenuOpen(false)}
+                  className="hover:text-[#FAA419]"
+                >
+                  Contacts
+                </NavLink>
+              </li>
+              <li className="mt-4">
+                <a
+                  href="/cozymprofile.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMenuOpen(false)}
+                  className="bg-[#002b45] text-white px-[25px] py-[10px] rounded inline-block"
+                >
+                  Download Profile
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

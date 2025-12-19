@@ -12,15 +12,15 @@ export default function Footer() {
   return (
     <footer className=" bg-[#012A42]  ">
       {/* MAIN FOOTER */}
-      <div className=" text-[#FFFFFF] max-w-[1370px] mx-auto px-[100px] py-16 ">
-        <div className="grid grid-cols-3 gap-20">
+      <div className=" text-[#FFFFFF] max-w-[1370px] mx-auto px-4 sm:px-8 md:px-16 lg:px-[100px] py-8 sm:py-12 lg:py-16 ">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-20">
           {/* Left Section */}
           <div>
             <Link to="/">
               <img src={Footericon} alt="Cozym Logo" className="mb-6" />
             </Link>
 
-            <p className="text-[15px] font-medium leading-relaxed text-[#A5A49A]">
+            <p className="text-sm sm:text-base lg:text-[15px] font-medium leading-relaxed text-[#A5A49A]">
               Established in 2012, Cozym began in water and environmental
               engineering and evolved into a trusted EPC partner for oil & gas
               projects.
@@ -59,15 +59,15 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Explore Section */}
-          <div>
-            <h3 className="font-bold text-lg">Explore</h3>
+          {/* Explore Section - Hidden on mobile */}
+          <div className="hidden md:block">
+            <h3 className="font-bold text-base sm:text-lg">Explore</h3>
             <div className="flex gap-1">
               <div className="w-12 h-1 bg-[#FAA419] mt-2 mb-4 rounded"></div>
               <div className="w-1 h-1 bg-[#FAA419] mt-2 mb-4 rounded"></div>
             </div>
 
-            <ul className="space-y-2 text-[#A5A49A] text-[15px] font-medium">
+            <ul className="space-y-2 text-[#A5A49A] text-sm sm:text-base lg:text-[15px] font-medium">
               <li>
                 <Link to="/" className="hover:text-[#FAA419] duration-200">
                   Home
@@ -112,28 +112,28 @@ export default function Footer() {
 
           {/* Contact Section */}
           <div>
-            <h3 className="font-bold text-lg mb-2">Contact</h3>
+            <h3 className="font-bold text-base sm:text-lg mb-2">Contact</h3>
 
             <div className="flex gap-1 mb-4">
               <div className="w-12 h-1 bg-[#FAA419] rounded"></div>
               <div className="w-1 h-1 bg-[#FAA419] rounded"></div>
             </div>
 
-            <div className="flex items-center gap-3 text-[#A5A49A] text-[15px] ">
+            <div className="flex items-center gap-3 text-[#A5A49A] text-sm sm:text-base lg:text-[15px] ">
               +234 907 0000 251
             </div>
-            <div className="flex items-center gap-3 text-[#A5A49A] text-[15px]">
+            <div className="flex items-center gap-3 text-[#A5A49A] text-sm sm:text-base lg:text-[15px]">
               +234 907 0000 252
             </div>
-            <div className="flex items-center gap-3 text-[#A5A49A] text-[15px]">
+            <div className="flex items-center gap-3 text-[#A5A49A] text-sm sm:text-base lg:text-[15px]">
               +234 907 0000 253
             </div>
 
-            <div className="flex items-center gap-4 text-[#A5A49A] mt-2 text-[15px]">
+            <div className="flex items-center gap-4 text-[#A5A49A] mt-2 text-sm sm:text-base lg:text-[15px]">
               info@cozymltd.com
             </div>
 
-            <div className="flex items-start gap-4 text-[#A5A49A] text-[15px] mt-2 leading-relaxed">
+            <div className="flex items-start gap-4 text-[#A5A49A] text-sm sm:text-base lg:text-[15px] mt-2 leading-relaxed">
               Plot 2, Block 115, Ayo Babatunde Crescent, Off Oniru New Market
               Road, Lekki, Lagos State, Nigeria
             </div>
@@ -145,8 +145,8 @@ export default function Footer() {
                 placeholder="Your Email Address"
                 className="flex-1 px-3 py-2 text-black text-sm outline-none"
               />
-              <button className="bg-[#FAA419] px-4 py-4 flex items-center justify-center">
-                <FaTelegramPlane className="text-[#ffffff] text-[15px]" />
+              <button className="bg-[#FAA419] px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-center">
+                <FaTelegramPlane className="text-[#ffffff] text-sm sm:text-base lg:text-[15px]" />
               </button>
             </div>
           </div>

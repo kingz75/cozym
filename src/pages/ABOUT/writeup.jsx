@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Ded() {
   return (
-    <div className="bg-white pt-10 pb-16 ">
-      <div className=" max-w-[1370px] px-[100px] mx-auto space-y-6 gap-x-28 text-[#333333] text-[20px] text-justify    leading-relaxed                  ">
+    <div className="bg-white pt-10 pb-16">
+      <div className="max-w-[1370px] px-4 sm:px-8 md:px-16 lg:px-[100px] mx-auto space-y-6 text-[#333333] text-base sm:text-lg md:text-xl lg:text-[20px] text-justify leading-relaxed">
         <div>
           Cozym Limited is a 100% Nigerian indigenous company delivering oil and
           gas infrastructure that powers Nigeria’s energy future. Established in

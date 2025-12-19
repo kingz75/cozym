@@ -60,7 +60,7 @@ export default function Video() {
   };
 
   return (
-    <div className="relative pb-16 -mt-10 px-[240px]">
+    <div className="relative pb-8 sm:pb-12 lg:pb-16 -mt-10 px-4 sm:px-8 md:px-16 lg:px-[240px]">
       <div
         ref={containerRef}
         className={`relative mx-auto ${
@@ -74,7 +74,7 @@ export default function Video() {
           ref={videoRef}
           src={VideoBg}
           muted
-          className="w-full h-screen object-cover rounded-xl"
+          className="w-full h-64 sm:h-80 md:h-96 lg:h-screen object-cover rounded-xl"
         />
 
         {/* Overlay + Play */}

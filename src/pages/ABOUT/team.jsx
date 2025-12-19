@@ -49,25 +49,25 @@ export default function Team() {
   }, []);
 
   return (
-    <div ref={sectionRef} className="bg-[#012A42] w-full py-16">
-      <div className="mx-auto max-w-[1100px]">
-        <div className="flex justify-center gap-28 text-[18px] text-[#A5A49A] font-medium text-center">
+    <div ref={sectionRef} className="bg-[#012A42] w-full py-12 sm:py-16">
+      <div className="mx-auto max-w-[1100px] px-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 justify-items-center gap-8 sm:gap-12 lg:gap-28 text-sm sm:text-base lg:text-[18px] text-[#A5A49A] font-medium text-center">
           <div>
-            <p className="text-3xl font-bold text-white">
+            <p className="text-2xl sm:text-3xl font-bold text-white">
               <CountUp end={250} start={startCount} />
             </p>
             <p>Professional Team</p>
           </div>
 
           <div>
-            <p className="text-3xl font-bold text-white">
+            <p className="text-2xl sm:text-3xl font-bold text-white">
               <CountUp end={100} start={startCount} />
             </p>
             <p>Projects Completed</p>
           </div>
 
-          <div>
-            <p className="text-3xl font-bold text-white">
+          <div className="col-span-2 sm:col-span-1">
+            <p className="text-2xl sm:text-3xl font-bold text-white">
               <CountUp end={50} start={startCount} />
             </p>
             <p>Satisfied Clients</p>

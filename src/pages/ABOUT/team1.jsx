@@ -153,11 +153,16 @@ export default function ManagementSlider() {
   };
 
   return (
-    <div ref={ref} className="w-full flex flex-col items-center py-10">
+    <div
+      ref={ref}
+      className="w-full flex flex-col items-center py-8 sm:py-10 px-4"
+    >
       {/* Title */}
-      <div className="text-center mb-16 mt-4">
-        <p className="text-[#FAA419] text-[48px] leading-none">Our</p>
-        <h2 className="text-[48px] font-extrabold text-[#002B45] leading-none">
+      <div className="text-center mb-8 sm:mb-12 lg:mb-16 mt-4">
+        <p className="text-[#FAA419] text-2xl sm:text-3xl md:text-4xl lg:text-[48px] leading-none">
+          Our
+        </p>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-extrabold text-[#002B45] leading-none">
           Management Team
         </h2>
       </div>
@@ -167,34 +172,34 @@ export default function ManagementSlider() {
         <div className="w-full flex flex-col items-center transition-all duration-700 ease-in-out">
           {/* OUTER RING */}
           <div>
-            <div className="p-4 rounded-full border-2 border-[#FAA419] flex items-center justify-center">
+            <div className="p-2 sm:p-4 rounded-full border-2 border-[#FAA419] flex items-center justify-center">
               <div className=" relative z-20 rounded-full overflow-hidden bg-white">
                 <img
                   src={person.image}
                   alt={person.name}
-                  className="w-[300px] h-[300px] object-cover"
+                  className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-[300px] lg:h-[300px] object-cover"
                 />
               </div>
             </div>
           </div>
 
           {/* Card */}
-          <div className="bg-[#ffffff] text-[#002B45] mt-[-120px] pt-[130px] pb-[50px] px-[60px] rounded-xl shadow-lg w-full relative z-10">
-            <h3 className="text-center text-[32px] font-semibold">
+          <div className="bg-[#ffffff] text-[#002B45] mt-[-80px] sm:mt-[-100px] lg:mt-[-120px] pt-[90px] sm:pt-[110px] lg:pt-[130px] pb-8 sm:pb-10 lg:pb-[50px] px-4 sm:px-8 md:px-12 lg:px-[60px] rounded-xl shadow-lg w-full max-w-4xl relative z-10">
+            <h3 className="text-center text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-semibold">
               {displayedName}
             </h3>
-            <p className="text-center font-semibold text-[16px] text-[#FAA419] mb-4">
+            <p className="text-center font-semibold text-sm sm:text-base lg:text-[16px] text-[#FAA419] mb-4">
               {person.role}
             </p>
 
-            <p className="text-[24px] leading-[38px] whitespace-pre-line">
+            <p className="text-sm sm:text-base md:text-lg lg:text-[24px] leading-relaxed lg:leading-[38px] whitespace-pre-line">
               {person.shortBio}
               {expanded && <span className="block mt-2">{person.fullBio}</span>}
             </p>
 
             <button
               onClick={toggleExpanded}
-              className="mt-4 text-[#FAA419] underline text-[24px]"
+              className="mt-4 text-[#FAA419] underline text-sm sm:text-base md:text-lg lg:text-[24px]"
             >
               {expanded ? "Read less" : "Read more"}
             </button>
